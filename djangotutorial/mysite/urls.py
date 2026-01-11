@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from debug_toolbar.toolbar import debug_toolbar_urls
+from mysite.views import index_view
 
 urlpatterns = [
+    path('', index_view, name='home'), # Map the root URL to your index view
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
-]
+] + debug_toolbar_urls()
