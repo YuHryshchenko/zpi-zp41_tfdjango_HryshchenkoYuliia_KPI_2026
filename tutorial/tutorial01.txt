@@ -1,0 +1,6 @@
+python3 -m django --version
+mkdir djangotutorial
+django-admin startproject mysite djangotutorial
+cd djangotutorial
+python3 manage.py runserver
+python3 manage.py startapp polls
