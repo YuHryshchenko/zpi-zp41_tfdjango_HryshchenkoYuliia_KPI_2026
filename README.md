@@ -4,7 +4,7 @@ KPI IIS TF and Django project by Yuliia Hryshchenko (zpi-zp41)
 
 You could use this learning app as a base for your new project.
 
-**This app is using Django 6.0.1 and Python 3.15.5**.
+**This app is using Django 6.0.1 and Python 3.13.5**.
 
 ## Програмування інтелектуальних інформаційних систем
 
