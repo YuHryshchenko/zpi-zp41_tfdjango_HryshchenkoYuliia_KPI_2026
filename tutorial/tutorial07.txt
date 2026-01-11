@@ -1,0 +1,2 @@
+python3 manage.py runserver
+python3 -c "import django; print(django.__path__)"
