@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "video_app.apps.VideoAppConfig",
     "sound_app.apps.SoundAppConfig",
     "signal_app.apps.SignalAppConfig",
-#    "creative_app.apps.CreativeAppConfig",
+    "creative_app.apps.CreativeAppConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
