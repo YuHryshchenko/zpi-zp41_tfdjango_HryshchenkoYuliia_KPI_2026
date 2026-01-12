@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import include, path
 from debug_toolbar.toolbar import debug_toolbar_urls
 from mysite.views import index_view
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index_view, name='home'), # Map the root URL to your index view
     path("polls/", include("polls.urls")),
+    path("image/", include("image_app.urls")),
     path("admin/", admin.site.urls),
-] + debug_toolbar_urls()
+] + debug_toolbar_urls() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

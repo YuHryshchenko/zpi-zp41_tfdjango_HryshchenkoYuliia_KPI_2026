@@ -1,8 +1,10 @@
 # Mostly created by https://www.gitignore.io
 
-### Own VENV and docs #########################################################
+### Own VENV, media and docs ##################################################
 
 djangoenv
+media
+media/*
 #tutorial
 #tutorial/*
 
