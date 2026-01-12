@@ -1,0 +1,9 @@
+<div style="padding: 50px; text-align: center; min-height: 100vh;">
+    <h1>Upload media</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    <p>Analysis result: {{ result }}</p>
+</div>
