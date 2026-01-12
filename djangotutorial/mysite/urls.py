@@ -26,7 +26,7 @@ urlpatterns = [
     path("polls/", include("polls.urls")),
     path("image/", include("image_app.urls")),
     path("video/", include("video_app.urls")),
-#    path("sound/", include("sound_app.urls")),
+    path("sound/", include("sound_app.urls")),
 #    path("signal/", include("signal_app.urls")),
 #    path("creative/", include("creative_app.urls")),
     path("admin/", admin.site.urls),

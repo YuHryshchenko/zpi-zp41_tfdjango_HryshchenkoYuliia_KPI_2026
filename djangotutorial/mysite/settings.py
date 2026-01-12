@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "polls.apps.PollsConfig",
     "image_app.apps.ImageAppConfig",
     "video_app.apps.VideoAppConfig",
-#    "sound_app.apps.SoundAppConfig",
+    "sound_app.apps.SoundAppConfig",
 #    "signal_app.apps.SignalAppConfig",
 #    "creative_app.apps.CreativeAppConfig",
     'django.contrib.admin',
