@@ -27,7 +27,7 @@ urlpatterns = [
     path("image/", include("image_app.urls")),
     path("video/", include("video_app.urls")),
     path("sound/", include("sound_app.urls")),
-#    path("signal/", include("signal_app.urls")),
+    path("signal/", include("signal_app.urls")),
 #    path("creative/", include("creative_app.urls")),
     path("admin/", admin.site.urls),
 ] + debug_toolbar_urls() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
