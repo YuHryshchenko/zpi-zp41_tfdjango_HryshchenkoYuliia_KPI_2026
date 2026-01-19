@@ -1,9 +1,54 @@
-<h1>{{ question.question_text }}</h1>
+{% extends 'base.html' %}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+{% block content %}
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+<div class="container results-container">
+    <div class="card results-card p-4 p-md-5">
+        
+        <div class="text-center mb-5">
+            <span class="badge rounded-pill bg-info text-dark px-3 py-2 mb-2">Live Results</span>
+            <h2 class="display-6 fw-bold text-dark">{{ question.question_text }}</h2>
+        </div>
+
+        <div class="results-list">
+            {% for choice in question.choice_set.all %}
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-end">
+                        <span class="choice-label fs-5">{{ choice.choice_text }}</span>
+                        <span class="vote-count">
+                            <span class="badge bg-light text-dark border">{{ choice.votes }} vote{{ choice.votes|pluralize }}</span>
+                        </span>
+                    </div>
+                    
+                    <div class="progress shadow-sm">
+                        {% widthratio choice.votes question.get_total_votes 100 as percentage %}
+                        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" 
+                             role="progressbar" 
+                             style="width: {{ percentage }}%;" 
+                             aria-valuenow="{{ percentage }}" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            {% if percentage != "0" %}{{ percentage }}%{% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <hr class="my-5 opacity-25">
+
+        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+            <a href="{% url 'polls:detail' question.id %}" class="btn btn-outline-info btn-action">
+                <i class="bi bi-arrow-left"></i> Vote Again
+            </a>
+            <a href="{% url 'polls:index' %}" class="btn btn-dark btn-action">
+                Return to Polls Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

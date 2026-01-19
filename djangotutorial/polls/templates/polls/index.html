@@ -1,13 +1,44 @@
-{% load static %}
+{% extends 'base.html' %}
 
+{% block content %}
+
+{% load static %}
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+<div id="polls-main">
+
+    <div class="container pb-5">
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card app-card border-polls h-100 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <span class="card-icon">🗳️</span>
+                        <h4 class="card-title fw-bold">Polls & Feedback</h4>
+                        <div class="text-start mt-3 mb-4">
+                            {% if latest_question_list %}
+                                <p class="small fw-bold text-uppercase text-muted">Latest Questions:</p>
+                                <ul class="list-unstyled">
+                                {% for question in latest_question_list|slice:":3" %}
+                                    <li class="text-truncate mb-1">
+                                        <a href="{% url 'polls:detail' question.id %}" class="text-decoration-none text-dark">
+                                            • {{ question.question_text }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="small text-muted">No polls available.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+{% endblock %}
