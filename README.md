@@ -1,6 +1,6 @@
 # 🧠 Веб застосунок Django + TensorFlow
 
-КПИ Програмування ІІС Django та TensorFlow проект, розроблений студенткою Yuliia Hryshchenko (zpi-zp41)
+КПИ Програмування ІІС Django та TensorFlow проект, розроблений студентками Yuliia Hryshchenko та Alexandra Adamchik (zpi-zp41)
 
 ## Програмування інтелектуальних інформаційних систем
 
