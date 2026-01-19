@@ -2,21 +2,27 @@
 
 {% block content %}
 
-<div style="background-color: {{ color }}; min-height: 100vh; transition: 0.8s; padding-top: 50px;">
-    <div class="app-container shadow-lg" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
+<div style="background-color: {{ color }}; min-height: 100vh; transition: 0.8s; padding-top: 50px;" id="creative-form">
+    <div class="app-container" style="border-top: 8px solid #ffc107; background-color: #f0fff4; margin-top: 0px;">
         <h3 class="mb-4">🎨 Atmosphere Generator : Mood-to-Color AI</h3>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}  <!-- Renders form fields as paragraphs -->
             <button type="submit" class="btn btn-dark btn-lg w-100">Transform Atmosphere</button>
         </form>
 
-        <div class="mt-4 text-center">
-            <small>Request: <code>{{ text }}</code></small>
+        {% if text %}
+        <div class="mt-4 card border-success">
+            <div class="card-body">
+                <div class="mt-4 text-center">
+                    <small>Request: <code>{{ text }}</code></small>
+                </div>
+                <div class="mt-4 text-center">
+                    <small>Generated Atmosphere Color: <code>{{ color }}</code></small>
+                </div>
+            </div>
         </div>
-        <div class="mt-4 text-center">
-            <small>Generated Atmosphere Color: <code>{{ color }}</code></small>
-        </div>
+        {% endif %}
     </div>
 </div>
 
