@@ -88,6 +88,7 @@ https://docs.djangoproject.com/en/5.2/intro/tutorial08/
 
 ### Загальна структура репозіторію.
 
+```
 zpi-zp41_tfdjango_HryshchenkoYuliia_KPI_2026/
 ├── djangotutorial/        # Основний проект djangotutorial
 │   ├── image_app/         # Додаток image_app    - 1. Розпізнавання зображення.
@@ -112,9 +113,11 @@ zpi-zp41_tfdjango_HryshchenkoYuliia_KPI_2026/
 │   └── ...
 ├── .gitignore
 └── README.md
+```
 
 ### Структура та зміст компонентів проекту djangotutorial
 
+```
 zpi-zp41_tfdjango_HryshchenkoYuliia_KPI_2026/djangotutorial
 ├── djangotutorial/
 │   ├── image_app          # Додаток image_app -    1. Розпізнавання зображення.
@@ -139,9 +142,11 @@ zpi-zp41_tfdjango_HryshchenkoYuliia_KPI_2026/djangotutorial
 │       └── ...
 ├── db.sqlite3             # База даних SQLite
 └── manage.py              # Утиліта командного рядка Django
+```
 
 ### Структура додатків (на прикладі polls, інші так само).
 
+```
 zpi-zp41_tfdjango_HryshchenkoYuliia_KPI_2026/djangotutorial/image_app/
 ├── djangotutorial/
 │   ├── polls                      # Додаток polls з Tutorial
@@ -161,6 +166,7 @@ zpi-zp41_tfdjango_HryshchenkoYuliia_KPI_2026/djangotutorial/image_app/
 │   │   └── views.py               # Обробка запитів та логіка на рівні додатку
 │   └── ...
 └── ...
+```
 
 ## Короткий опис архітектури проєкту
 
