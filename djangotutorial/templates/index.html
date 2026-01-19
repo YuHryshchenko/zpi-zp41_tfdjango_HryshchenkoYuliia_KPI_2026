@@ -1,37 +1,84 @@
-<!-- myapp/templates/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Django Tutorial App</title>
-</head>
-<body>
-    <h1>{{ welcome_message }}</h1>
-    <p>This is the default index page.</p>
-    <div id="content-main" class="app-list">
-        <div class="module"</div>
-            <h2>Featured sections</h2>
-                <table>
-                    <tr class="model">
-                        <td><a href="/polls/">Polls</a></td>
-                    </tr>
-                    <tr class="model">
-                        <td><a href="/image/">Image recognition</a></td>
-                    </tr>
-                    <tr class="model">
-                        <td><a href="/video/">Video recognition</a></td>
-                    </tr>
-                    <tr class="model">
-                        <td><a href="/sound/">Sound recognition</a></td>
-                    </tr>
-                    <tr class="model">
-                        <td><a href="/signal/">Signal analysis</a></td>
-                    </tr>
-                    <tr class="model">
-                        <td><a href="/creative/">Creative app</a></td>
-                    </tr>
-                </table>
-        </div>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">{% block title %}Django + TensorFlow Project{% endblock %}</h1>
+        <p class="lead text-info">Explore neural network implementations using Django & TensorFlow</p>
     </div>
-</body>
-</html>
+</div>
+
+<div class="container">
+    <div class="row g-4 justify-content-center">
+        
+        <div class="col-md-4 col-sm-6">
+            <div class="card app-card border-image h-100 p-3">
+                <div class="card-body text-center">
+                    <span class="card-icon">🖼️</span>
+                    <h5 class="card-title fw-bold">Image Recognition</h5>
+                    <p class="card-text text-muted small">Classify objects in real-time using MobileNetV2 architecture.</p>
+                    <a href="/image/" class="btn btn-outline-primary w-100">Launch App</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card app-card border-video h-100 p-3">
+                <div class="card-body text-center">
+                    <span class="card-icon">🎥</span>
+                    <h5 class="card-title fw-bold">Video Analyzer</h5>
+                    <p class="card-text text-muted small">Extract and identify key elements from high-motion video frames.</p>
+                    <a href="/video/" class="btn btn-outline-danger w-100">Launch App</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card app-card border-sound h-100 p-3">
+                <div class="card-body text-center">
+                    <span class="card-icon">🎧</span>
+                    <h5 class="card-title fw-bold">Sound Recognition</h5>
+                    <p class="card-text text-muted small">Environmental sound classification using YAMNet audio models.</p>
+                    <a href="/sound/" class="btn btn-outline-dark w-100" style="border-color: #6f42c1; color: #6f42c1;">Launch App</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card app-card border-signal h-100 p-3">
+                <div class="card-body text-center">
+                    <span class="card-icon">📊</span>
+                    <h5 class="card-title fw-bold">Signal Analysis</h5>
+                    <p class="card-text text-muted small">Fast Fourier Transform (FFT) for periodic signal detection.</p>
+                    <a href="/signal/" class="btn btn-outline-success w-100">Launch App</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card app-card border-creative h-100 p-3">
+                <div class="card-body text-center">
+                    <span class="card-icon">🎨</span>
+                    <h5 class="card-title fw-bold">Mood-to-Color AI</h5>
+                    <p class="card-text text-muted small">Generative AI that maps text sentiment to vivid color spaces.</p>
+                    <a href="/creative/" class="btn btn-outline-warning w-100">Launch App</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card app-card border-polls h-100 p-3">
+                <div class="card-body text-center">
+                    <span class="card-icon">🗳️</span>
+                    <h5 class="card-title fw-bold">Data Polls</h5>
+                    <p class="card-text text-muted small">Traditional data collection and user feedback system.</p>
+                    <a href="/polls/" class="btn btn-outline-info w-100">View Polls</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
