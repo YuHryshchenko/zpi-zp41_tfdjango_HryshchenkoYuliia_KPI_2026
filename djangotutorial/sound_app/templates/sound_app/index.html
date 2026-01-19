@@ -1,9 +1,20 @@
-<div style="padding: 50px; text-align: center; min-height: 100vh;">
-    <h1>Upload media</h1>
-    <form method="POST" enctype="multipart/form-data">
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="app-container" style="border-top: 8px solid #6f42c1; background-color: #f3f0fa;">
+    <h3 style="color: #6f42c1;" class="mb-4">🎧 Sound Detector</h3>
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <button type="submit" class="btn text-white w-100" style="background-color: #6f42c1;">Listen & Recognize</button>
     </form>
-    <p>Recognition result: {{ top_class }}</p>
+
+    {% if top_class %}
+    <div class="mt-4 alert" style="background-color: #6f42c1; color: white;">
+        <strong>Sound Identified:</strong> {{ top_class }}
+    </div>
+    {% endif %}
 </div>
+
+{% endblock %}

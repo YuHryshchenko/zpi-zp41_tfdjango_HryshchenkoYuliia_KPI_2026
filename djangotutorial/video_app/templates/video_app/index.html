@@ -1,9 +1,21 @@
-<div style="padding: 50px; text-align: center; min-height: 100vh;">
-    <h1>Upload media</h1>
-    <form method="POST" enctype="multipart/form-data">
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="app-container" style="border-top: 8px solid #dc3545; background-color: #fff5f5;">
+    <h3 class="text-danger mb-4">🎥 Video Scene Analyzer</h3>
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <button type="submit" class="btn btn-danger w-100 shadow-sm">Process Video Frame</button>
     </form>
-    <p>Analysis result: {{ result }}</p>
+
+    {% if result %}
+    <div class="mt-4 p-3 bg-white border border-danger rounded text-center">
+        <span class="text-muted">I detected:</span>
+        <h4 class="text-uppercase text-danger mt-1">{{ result }}</h4>
+    </div>
+    {% endif %}
 </div>
+
+{% endblock %}

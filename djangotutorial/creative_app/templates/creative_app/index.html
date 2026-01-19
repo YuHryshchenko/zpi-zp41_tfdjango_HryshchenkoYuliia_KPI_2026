@@ -1,10 +1,23 @@
-<div style="background-color: {{ color }}; padding: 50px; text-align: center; min-height: 100vh; transition: background 1s;">
-    <h1>Atmosphere Generator</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}  <!-- Renders form fields as paragraphs -->
-        <button type="submit">Generate Color</button>
-    </form>
-    <p>Request: {{ text }}</p>
-    <p>Generated Atmosphere Color: {{ color }}</p>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="background-color: {{ color }}; min-height: 100vh; transition: 0.8s; padding-top: 50px;">
+    <div class="app-container shadow-lg" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
+        <h3 class="mb-4">🎨 Atmosphere Generator : Mood-to-Color AI</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Renders form fields as paragraphs -->
+            <button type="submit" class="btn btn-dark btn-lg w-100">Transform Atmosphere</button>
+        </form>
+
+        <div class="mt-4 text-center">
+            <small>Request: <code>{{ text }}</code></small>
+        </div>
+        <div class="mt-4 text-center">
+            <small>Generated Atmosphere Color: <code>{{ color }}</code></small>
+        </div>
+    </div>
 </div>
+
+{% endblock %}

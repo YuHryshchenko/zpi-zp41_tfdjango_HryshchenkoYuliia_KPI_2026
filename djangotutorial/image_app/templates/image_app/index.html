@@ -1,9 +1,26 @@
-<div style="padding: 50px; text-align: center; min-height: 100vh;">
-    <h1>Upload media</h1>
-    <form method="POST" enctype="multipart/form-data">
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="app-container" style="border-top: 8px solid #0d6efd; background-color: #f8f9fa;">
+    <h2 class="text-primary mb-4">🖼️ Image Classifier</h2>
+    <h3>Upload media</h3>
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <button type="submit" class="btn btn-primary w-100 py-2">Analyze Image</button>
     </form>
-    <p>Classification result: {{ prediction }}</p>
+
+    {% if prediction %}
+    <div class="mt-4 alert alert-info">
+        <h5 class="alert-heading">Results:</h5>
+        <ul class="mb-0">
+            {% for id, label, prob in prediction %}
+            <li><strong>{{ label }}</strong>: {{ prob|floatformat:2 }}%</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 </div>
+
+{% endblock %}

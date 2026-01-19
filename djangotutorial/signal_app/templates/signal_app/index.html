@@ -1,10 +1,26 @@
-<div style="padding: 50px; text-align: center; min-height: 100vh;">
-    <h1>Upload media</h1>
-    <form method="POST" enctype="multipart/form-data">
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="app-container" style="border-top: 8px solid #198754; background-color: #f0fff4;">
+    <h3 class="text-success mb-4">📊 Signal Spectrum Lab</h3>
+    <p class="text-muted small">Upload a CSV file with signal amplitude data.</p>
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <button type="submit" class="btn btn-success w-100">Perform FFT Analysis</button>
     </form>
-    <p>Classification result: {{ classification }}</p>
-    <p>Frequency data: {{ plot_data }}</p>
+
+    {% if classification %}
+    <div class="mt-4 card border-success">
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Analysis Result:</h6>
+            <p class="card-text fw-bold text-success">{{ classification }}</p>
+            <h6 class="card-subtitle mb-2 text-muted">Frequency data:</h6>
+            <p class="card-text fw-bold text-success">{{ plot_data }}</p>
+        </div>
+    </div>
+    {% endif %}
 </div>
+
+{% endblock %}
